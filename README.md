@@ -54,7 +54,7 @@ Open your browser and visit http://localhost:3000 to view the project.
 
 Project Structure
 Copy
-![alt text](image.png)
+![alt text](ProjectStructure.png)
 
 ---
 
