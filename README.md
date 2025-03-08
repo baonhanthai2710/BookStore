@@ -1,7 +1,5 @@
 # Bookstore Frontend - React.js & Tailwind CSS
 
-![Project Screenshot](./screenshot.png) <!-- Add a screenshot of your project here -->
-
 A modern and responsive frontend for an online bookstore, built with **React.js** and styled using **Tailwind CSS**. This project aims to deliver a seamless and intuitive user experience for browsing, exploring, and purchasing books.
 
 ---
@@ -34,7 +32,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/bookstore-frontend.git
+   git clone https://github.com/baonhanthai2710/BookStore.git
 Navigate to the project directory:
 
 bash
@@ -52,28 +50,22 @@ Copy
 npm run dev
 Open your browser and visit http://localhost:3000 to view the project.
 
+---
+
 Project Structure
 Copy
-bookstore-frontend/
-├── public/              # Static assets (e.g., images, fonts)
-├── src/                 # Source code
-│   ├── components/      # Reusable UI components
-│   ├── pages/           # Page components (e.g., Home, Book Details)
-│   ├── assets/          # Images, icons, and other assets
-│   ├── styles/          # Custom styles (if needed)
-│   ├── App.jsx          # Main application component
-│   ├── main.jsx         # Entry point
-│   └── index.css        # Global styles
-├── tailwind.config.js   # Tailwind CSS configuration
-├── vite.config.js       # Vite configuration (if using Vite)
-├── package.json         # Project dependencies and scripts
-└── README.md            # Project documentation
+![alt text](image.png)
+
+---
+
 Customization
 Tailwind CSS: Customize the design system by editing tailwind.config.js.
 
 Theming: Add or modify themes in src/styles/ or directly in the Tailwind configuration.
 
 API Integration: If you have a backend, update the API endpoints in the src/services/ directory.
+
+---
 
 Contributing
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
@@ -88,8 +80,7 @@ Push to the branch (git push origin feature/YourFeatureName).
 
 Open a pull request.
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+---
 
 Acknowledgments
 React.js for the incredible frontend library.
