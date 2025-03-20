@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div>
       <main className='overflow-hidden bg-primary'>
-        <Header/>
+        <Header />
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/shop' element={<Shop/>}/>
