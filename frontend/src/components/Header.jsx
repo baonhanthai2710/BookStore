@@ -8,7 +8,7 @@ import { RiUserLine, RiShoppingBag4Line } from 'react-icons/ri';
 
 const Header = () => {
 
-  //const [active, setActive] = useState(false)
+  // const [active, setActive] = useState(false)
   const [menuOpened, setMenuOpened] = useState(false)
 
   const toggleMenu = () => {
@@ -29,7 +29,7 @@ const Header = () => {
           <h4 className='bold24'>TheCatReader</h4>
         </Link>
         <div className='flex-1'>
-          <Navbar containerStyles={`${menuOpened ?
+          <Navbar menuOpened={menuOpened} toggleMenu={toggleMenu} containerStyles={`${menuOpened ?
           "flex flex-col gap-y-16 h-screen w-[222px] absolute left-0 top-0 bg-white z-50 px-10 py-4 shadow-xl" : 
           "hidden xl:flex justify-center gap-x-8 xl:gap-x-14 medium-15 px-2 py-1"}`} />
         </div>
@@ -39,7 +39,7 @@ const Header = () => {
             className='text-2xl xl:hidden cursor-pointer' />
           </button>
           <Link to='/Cart' aria-label='Cart' className='flex relative'>
-            <RiShoppingBag4Line className='text-[33px] bg-secondary text-primary p-1.5 rounded-full' />
+            <RiShoppingBag4Line className='text-[33px] bg-black text-primary p-1.5 rounded-full' />
             <span className='bg-primary ring-1 ring-slate-900/5 medium-14 absolute left-5 -top-2.5 flexCenter w-5 h-5 rounded-full shadow-md '>0</span>          
           </Link>
           <div>
