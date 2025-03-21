@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import {React, useState, useEffect} from 'react';
+import { Link, useNavigate} from 'react-router-dom';
 import logo from '../assets/logo.png';
 import Navbar from './Navbar';
 import { CgMenuLeft } from 'react-icons/cg';
@@ -7,18 +7,36 @@ import { TbUserCircle } from 'react-icons/tb';
 import { RiUserLine, RiShoppingBag4Line } from 'react-icons/ri';
 
 const Header = () => {
-
-  // const [active, setActive] = useState(false)
+  
+  const navigate = useNavigate()
+  const [token] = useState('')
+  const [active, setActive] = useState(false)
   const [menuOpened, setMenuOpened] = useState(false)
 
   const toggleMenu = () => {
     setMenuOpened((prev) => !prev);
   }
 
+  useEffect (()=>{
+      const handleScroll = () => {
+        if (window.scrollY > 0){
+          if(menuOpened){
+            setMenuOpened(false)
+          }
+        }
+        setActive(window.scrollY > 30)
+      }
+      window.addEventListener("scroll", handleScroll)
+      return()=>{
+        window.removeEventListener("scroll", handleScroll)
+      }
+  }),[menuOpened]
+
   return (
     <header className='fixed top-0 w-full left-0 right-0 z-50'>
-      <div className='bg-white py-2.5 max-padd-container flexBetween border-b border-slate-900/10 rounded transition-all duration-300'>
-        <Link to='/' className='flex-1 flex items-center justify-start'>
+      <div className={`${active ? 'bg-white py-2.5' : 'py-3'} max-padd-container flexBetween border-b border-slate-900/10 rounded transition-all duration-300`}
+      >
+    <Link to='/' className='flex-1 flex items-center justify-start'>
           <img
             src={logo}
             alt='TheCatReader Logo'
@@ -42,10 +60,23 @@ const Header = () => {
             <RiShoppingBag4Line className='text-[33px] bg-black text-primary p-1.5 rounded-full' />
             <span className='bg-primary ring-1 ring-slate-900/5 medium-14 absolute left-5 -top-2.5 flexCenter w-5 h-5 rounded-full shadow-md '>0</span>          
           </Link>
-          <div>
-            <button className='btn-outline flexCenter gap-x-2'>
-              Login <RiUserLine className='text-xl' />
-            </button>
+          <div className="relative group">
+            <div onClick={!token && navigate('/') } classname="">
+            {token ? 
+            (<div><TbUserCircle className="text-[29px] cursor-pointer"/></div>
+            ) : (
+                <button className='btn-outline flexCenter gap-x-2'>
+                Login <RiUserLine className='text-xl' />
+              </button>
+            )}
+            </div>
+            {token &&<>
+            <ul className="bg-white p-1 w-33 ring-1 ring-slate-900/5
+             rounded absolute right-0 top-10 hidden group-hover:flex flex-col regular-14 shadow-md ">
+              <li className="p-2 text-tertiary rounded-md hover:bg-primary cursor-pointer">Orders</li>
+              <li className="p-2 text-tertiary rounded-md hover:bg-primary cursor-pointer">LogOut</li>
+            </ul>
+            </>}
           </div>
         </div>
       </div>
